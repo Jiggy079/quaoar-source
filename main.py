@@ -96,6 +96,7 @@ async def search(ctx, *args):
             else:
                 await bot.say(synopsis)
 
+            # old code for sending synopsis, no longer used
             # synopsisList = []
             # for line in synopsis.split(". "):
             #     synopsisList.append(line)
