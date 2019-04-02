@@ -141,5 +141,5 @@ async def printhelp(ctx):
 while True:
     try:
         bot.run("token goes here")
-    except Exception as e:
+    except ConnectionResetError as e:
         print(str(e), file=sys.stderr)
