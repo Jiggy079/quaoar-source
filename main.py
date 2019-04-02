@@ -73,6 +73,8 @@ async def search(ctx, *args):
             url = url.strip("</loc>")
             link = url
 
+
+
             embed = discord.Embed(title="Anime Information", colour=0x21ff00)
             embed.set_thumbnail(url=thumbnail)
             embed.add_field(name="Title", value=title, inline=False)
@@ -85,20 +87,28 @@ async def search(ctx, *args):
             embed.add_field(name="Link", value=link, inline=False)
             
             await bot.say(embed=embed)
-            await bot.say("Synopsis\n")
-            synopsisList = []
-            for line in synopsis.split(". "):
-                synopsisList.append(line)
+
+            await bot.say("**Synopsis**\n")
+
+            if len(synopsis) > 2000:
+                await bot.say("*Too long, please open anime in MAL if you wish to read it.*")
             
-            mid = len(synopsisList) // 2
-            text = ""
-            for i in range(0, mid):
-                text += synopsisList[i] +". "
-            await bot.say(text)
-            text = ""
-            for i in range(mid+1, len(synopsisList)):
-                text += synopsisList[i] + ". "
-            await bot.say(text)
+            else:
+                await bot.say(synopsis)
+
+            # synopsisList = []
+            # for line in synopsis.split(". "):
+            #     synopsisList.append(line)
+            
+            # mid = len(synopsisList) // 2
+            # text = ""
+            # for i in range(0, mid):
+            #     text += synopsisList[i] +". "
+            # await bot.say(text)
+            # text = ""
+            # for i in range(mid+1, len(synopsisList)):
+            #     text += synopsisList[i] + ". "
+            # await bot.say(text)
         else:
             await bot.say("Anime not found D:")
     except Exception:
