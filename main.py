@@ -4,7 +4,7 @@ try:
     from discord.ext import commands
     from discord.ext.commands import Bot
     import asyncio
-    import os
+    import sys
     import anime_search
     import anime_top
 except ModuleNotFoundError:
@@ -139,4 +139,8 @@ async def printhelp(ctx):
     embed.set_footer(text="Quaoar v0.0.2 | By Jiggy  ^ ^")
     await bot.say(embed=embed)
 
-#bot.run(token goes here)
+while True:
+    try:
+        bot.run(token goes here)
+    except Exception as e:
+        print(str(e), file=sys.stderr)
