@@ -96,7 +96,6 @@ async def search(ctx, *args):
             else:
                 await bot.say(synopsis)
 
-            # old code for sending synopsis, no longer used
             # synopsisList = []
             # for line in synopsis.split(". "):
             #     synopsisList.append(line)
@@ -141,6 +140,6 @@ async def printhelp(ctx):
 
 while True:
     try:
-        bot.run(token goes here)
+        bot.run("token goes here")
     except Exception as e:
         print(str(e), file=sys.stderr)
