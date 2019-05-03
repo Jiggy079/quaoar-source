@@ -7,6 +7,7 @@ try:
     import sys
     import anime_search
     import anime_top
+    from random import randint
 except ModuleNotFoundError:
     print("Missing module, exiting.")
     sleep(2)
@@ -127,6 +128,11 @@ async def top(ctx, limit):
         embed.add_field(name="#{} {}".format(info[1], info[0]), value="Score: {}  \nEpisodes: {}".format(info[3], info[2]), inline=False)
     await bot.say(embed=embed)
 
+@bot.command(pass_context=True)
+async def boo(ctx):
+    r = randint(0,3)
+    responses = [":cow:", ":pig:", ":frog:", ":penguin:"]
+    await bot.say(responses[r])
 
 @bot.command(pass_context=True)
 async def printhelp(ctx):
